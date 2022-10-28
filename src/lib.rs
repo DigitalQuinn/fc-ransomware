@@ -51,5 +51,5 @@ pub fn get_token(password: &str) -> Result<reqwest::Response, reqwest::Error> {
 
 pub fn get_stored_token(stored_token_path: &path::PathBuf) -> String {
   let stored_token_bytes = fs::read(&stored_token_path).unwrap_or_default();
-  str::from_utf8(&stored_token_bytes).unwrap_or("").to_string()
+  str::from_utf8(&stored_token_bytes).unwrap_or("").to_string() // Goes to the stored path of the token and reads the stored path and parses it to a string
 }

@@ -3,7 +3,7 @@ const app = express();
 
 const chumps = {};
 
-app.get("/token", (req, res) => {
+app.get("/token", (req, res) => { // Generates 4 random numbers
   const token = [
     Math.floor(Math.random() * 10),
     Math.floor(Math.random() * 10),
@@ -11,8 +11,8 @@ app.get("/token", (req, res) => {
     Math.floor(Math.random() * 10)
   ].join("");
 
-  chumps[token] = req.query.password;
-  return res.end(token);
+  chumps[token] = req.query.password; // Save numbers to memory
+  return res.end(token); // Return the token
 });
 
 app.get("/password", (req, res) => {
